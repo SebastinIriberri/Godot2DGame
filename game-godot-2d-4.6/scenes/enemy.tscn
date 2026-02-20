@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bevtvj1bgg5s5"]
+
+[ext_resource type="Texture2D" uid="uid://bm55d8n0oe8x4" path="res://art/enemyFlyingAlt_1.png" id="1_xwavj"]
+[ext_resource type="Texture2D" uid="uid://dolcrc0jdo8s2" path="res://art/enemyFlyingAlt_2.png" id="2_nenq2"]
+[ext_resource type="Texture2D" uid="uid://bhmy5fdsaw04o" path="res://art/enemySwimming_1.png" id="3_md484"]
+[ext_resource type="Texture2D" uid="uid://d3mhqblnud5oy" path="res://art/enemySwimming_2.png" id="4_ipns3"]
+[ext_resource type="Texture2D" uid="uid://c8gr5k60klq3a" path="res://art/enemyWalking_1.png" id="5_8qclf"]
+[ext_resource type="Texture2D" uid="uid://cpygxeu6s2wv3" path="res://art/enemyWalking_2.png" id="6_w8i8w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_otmr2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xwavj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nenq2")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_md484")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ipns3")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_8qclf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w8i8w")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wtq4b"]
+radius = 12.0
+height = 34.0
+
+[node name="Mob" type="RigidBody2D" unique_id=274864204]
+collision_mask = 0
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1075854276]
+unique_name_in_owner = true
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_otmr2")
+animation = &"walk"
+frame_progress = 0.28762633
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1688022733]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_wtq4b")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=359863944]
